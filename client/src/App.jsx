@@ -1,9 +1,13 @@
-import './App.css';
-
+import './App.css'
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>Chiemela Store</header>
+    <div>
+      <header>
+        <a href="/">Chiemela Store</a>
+      </header>
+      <main>
+        Show Items
+      </main>
     </div>
   );
 }
