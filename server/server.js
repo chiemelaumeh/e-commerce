@@ -1,28 +1,31 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import cors from 'cors'
+import productRouter from './routes/productRouter.js';
+import { dbConnection } from './db.js';
 dotenv.config();
+
 const app = express();
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
 const port = process.env.PORT || 8800;
 
-import productRouter from './routes/productRouter.js';
-
-import { dbConnection } from './db.js';
 app.use('/api/products', productRouter);
-
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
-  const errorMessage = err.errorMessage || 'Something went wrong';
+  const errorMessage = err.message || 'Something went wrong';
   res.status(errorStatus).json({
     successful: false,
-    status: error.Status,
-    message: error.message,
+    message: errorMessage,
+    status: errorStatus,
     stack: err.stack,
   });
-
 });
-app.use('/', (req, res) => {
+
+app.get('/', (req, res) => {
   res.status(200).send('Api is working');
 });
 
