@@ -2,16 +2,16 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
-  const [data, setData] = useState('');
+  const [products, setProducts] = useState('');
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchData = async (url) => {
+    const fetchData = async () => {
       setLoading(true);
       try {
         const response = await axios.get(url);
-        setData(response.data);
+        setProducts(response.data);
       } catch (error) {
         setError(error);
       }
@@ -19,6 +19,7 @@ const useFetch = (url) => {
     };
     fetchData()
   }, []);
-  return { data, error, loading }
+
+  return { products, error, loading }
 };
 export default useFetch;

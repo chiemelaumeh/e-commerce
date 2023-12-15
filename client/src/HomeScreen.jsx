@@ -1,9 +1,15 @@
-import useFetch from "./hooks/useFetch";
+
+import useFetch from "../src/hooks/useFetch"
 
 const HomeScreen = () => {
-
   
+  const { products, loading, error } = 
+  useFetch(
+    "/products/fetchfeatured"
+    )
 
+
+  console.log(products)
 
   return (
     <div>
