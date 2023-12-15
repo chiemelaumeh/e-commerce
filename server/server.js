@@ -22,7 +22,7 @@ app.use((error, req, res, next) => {
     successful: false,
     message: errorMessage,
     status: errorStatus,
-    stack: err.stack,
+    stack: error.stack,
   });
 });
 
