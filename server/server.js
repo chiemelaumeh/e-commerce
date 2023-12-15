@@ -15,9 +15,9 @@ const port = process.env.PORT || 8800;
 app.use('/api/products', productRouter);
 
 
-app.use((err, req, res, next) => {
-  const errorStatus = err.status || 500;
-  const errorMessage = err.message || 'Something went wrong';
+app.use((error, req, res, next) => {
+  const errorStatus = error.status || 500;
+  const errorMessage = error.message || 'Something went wrong';
   res.status(errorStatus).json({
     successful: false,
     message: errorMessage,
