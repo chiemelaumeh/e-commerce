@@ -1,7 +1,8 @@
-import Product from '../models/product.js';
+import Product from '../../models/product.js';
 
-export const addProduct = async (req, res, next) => {
-  const { title, slug, image, brand, category, description, price, count,  } = req.body;
+export const createProduct = async (req, res, next) => {
+  const { title, slug, image, brand, category, description, price, count } =
+    req.body;
   const newProduct = new Product({
     title: title,
     slug: slug,

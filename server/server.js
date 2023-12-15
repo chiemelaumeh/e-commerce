@@ -1,18 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import cors from 'cors'
+import cors from 'cors';
 import productRouter from './routes/productRouter.js';
 import { dbConnection } from './db.js';
 dotenv.config();
 
 const app = express();
-app.use(cors())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true}))
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 const port = process.env.PORT || 8800;
 
 app.use('/api/products', productRouter);
+
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

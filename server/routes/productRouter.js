@@ -1,8 +1,8 @@
-import express from "express";
-import { addProduct } from "../controllers/product.js";
+import express from 'express';
+import { createProduct } from '../controllers/products/createproduct.js';
 const productRouter = express.Router();
 
+productRouter.post('/createproduct', createProduct);
+// productRouter.get('/fetchfeatured', fetchFeatured);
 
-productRouter.post("/createproduct", addProduct)
-
-export default productRouter
+export default productRouter;
