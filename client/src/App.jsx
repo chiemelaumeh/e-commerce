@@ -6,7 +6,7 @@ function App() {
         <a href="/">Chiemela Store</a>
       </header>
       <main>
-        Show Items
+       <h1> All Products</h1>
       </main>
     </div>
   );
