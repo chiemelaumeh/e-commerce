@@ -1,5 +1,6 @@
 import './homePage.css';
 import axios from 'axios';
+import logger from 'use-reducer-logger';
 import { useState, useEffect, useReducer } from 'react';
 
 import { Link } from 'react-router-dom';
@@ -8,14 +9,9 @@ const HomePage = () => {
   const productReducer = (state, action) => {
     switch (action.type) {
       case 'FETCH_REQUEST':
-        return { ...state, loading: true, error: false };
+        return { ...state, loading: true };
       case 'FETCH_SUCCESS':
-        return {
-          ...state,
-          products: action.payload,
-          loading: false,
-          error: false,
-        };
+        return { ...state, loading: false, products: action.payload };
       case 'FETCH_FAILED':
         return { ...state, loading: false, error: action.payload };
       default:
@@ -23,11 +19,14 @@ const HomePage = () => {
     }
   };
 
-  const [{ loading, error, products }, dispatch] = useReducer(productReducer, {
-    products: [],
-    loading: false,
-    error: false,
-  });
+  const [{ loading, error, products }, dispatch] = useReducer(
+    logger(productReducer),
+    {
+      loading: false,
+      products: [],
+      error: null,
+    }
+  );
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -47,24 +46,30 @@ const HomePage = () => {
       <main>
         <h1> All Products</h1>{' '}
         <div className='products'>
-          {products.map((product) => (
-            <div className='product' key={product._id}>
-              <Link to={`/product/${product.slug}`}>
-                <img src={product.image} alt={product.title} />
-              </Link>
-              <div className='product-info'>
-                <Link to={`/products/${product.slug}`}>
-                  <p>{product.title}</p>
+          {loading ? (
+            <div>Loading...</div>
+          ) : error ? (
+            <div>Error...</div>
+          ) : (
+            products.map((product) => (
+              <div className='product' key={product._id}>
+                <Link to={`/product/${product.slug}`}>
+                  <img src={product.image} alt={product.title} />
                 </Link>
+                <div className='product-info'>
+                  <Link to={`/products/${product.slug}`}>
+                    <p>{product.title}</p>
+                  </Link>
 
-                <p>
-                  {' '}
-                  <strong>$ {product.price}</strong>{' '}
-                </p>
-                <button>Add to cart</button>
+                  <p>
+                    {' '}
+                    <strong>$ {product.price}</strong>{' '}
+                  </p>
+                  <button>Add to cart</button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
       </main>
     </div>
