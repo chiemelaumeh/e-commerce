@@ -1,30 +1,20 @@
 :root {
-  --product-border:1px solid rgb(83, 110, 218);
+  --product-border: 1px solid rgb(83, 110, 218);
 
   a {
     text-decoration: none;
-    color: #000;
   }
   button {
     cursor: pointer;
   }
 }
-header {
-background-color: cadetblue;
-padding: 1rem;
-
+main {
+  flex: 1;
 }
-
-header a {
-  font-weight: bold;
-  color: #fff;
+.page-container {
+  min-height: 100vh;
 }
-
 body {
-  /* max-width: 1280px; */
-  /* margin: 0 auto; */
-  /* padding: 2rem; */
-  /* text-align: center; */
   margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }

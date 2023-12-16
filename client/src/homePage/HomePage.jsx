@@ -1,6 +1,6 @@
 import './homePage.css';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
+
 import { useState, useEffect, useReducer } from 'react';
 
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ const HomePage = () => {
   };
 
   const [{ loading, error, products }, dispatch] = useReducer(
-    logger(productReducer),
+    productReducer,
     {
       loading: false,
       products: [],
