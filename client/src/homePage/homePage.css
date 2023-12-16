@@ -5,13 +5,11 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 .product {
   border: var(--product-border);
   margin: 1rem;
-
 }
 
 .product img {

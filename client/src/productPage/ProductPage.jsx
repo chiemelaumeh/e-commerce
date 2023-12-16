@@ -1,8 +1,13 @@
-
+import { useParams } from "react-router-dom"
 
 const ProductPage = () => {
+
+  const params = useParams();
+  const { slug } = params
   return (
-    <div>ProductPage</div>
+    <div>
+      <h1>{slug}</h1>
+    </div>
   )
 }
 
