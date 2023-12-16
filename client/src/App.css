@@ -1,14 +1,21 @@
 :root {
   --product-border:1px solid rgb(83, 110, 218);
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  button {
+    cursor: pointer;
+  }
 }
-header{
+header {
 background-color: cadetblue;
 padding: 1rem;
 
 }
 
 header a {
-  text-decoration: none;
   font-weight: bold;
   color: #fff;
 }

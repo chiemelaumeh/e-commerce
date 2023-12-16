@@ -1,4 +1,4 @@
-import "./homeScreen.css"
+import './homeScreen.css';
 import useFetch from '../hooks/useFetch';
 
 const HomeScreen = () => {
@@ -14,9 +14,20 @@ const HomeScreen = () => {
         <div className='products'>
           {products.map((product) => (
             <div className='product' key={product.id}>
-              <img src={product.image} alt={product.title} />
-              <p>{product.title}</p>
-              <p>${product.price}</p>
+              <a href={`/products/${product._id}`}>
+                <img src={product.image} alt={product.title} />
+              </a>
+              <div className='product-info'>
+                <a href={`/products/${product._id}`}>
+                  <p>{product.title}</p>
+                </a>
+
+                <p>
+                  {' '}
+                  <strong>$ {product.price}</strong>{' '}
+                </p>
+                <button>Add to cart</button>
+              </div>
             </div>
           ))}
         </div>
