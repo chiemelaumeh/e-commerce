@@ -1,7 +1,7 @@
-import './homeScreen.css';
+import './homePage.css';
 import useFetch from '../hooks/useFetch';
 
-const HomeScreen = () => {
+const HomePage = () => {
   const { products, loading, error } = useFetch('/products/fetchfeatured');
 
   return (
@@ -14,7 +14,7 @@ const HomeScreen = () => {
         <div className='products'>
           {products.map((product) => (
             <div className='product' key={product.id}>
-              <a href={`/products/${product._id}`}>
+              <a href={`/product/${product._id}`}>
                 <img src={product.image} alt={product.title} />
               </a>
               <div className='product-info'>
@@ -36,4 +36,4 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default HomePage;
