@@ -1,23 +1,18 @@
-import './App.css'
-import axios from "axios"
-import HomeScreen from './HomeScreen';
+import './App.css';
+import axios from 'axios';
+import HomeScreen from './homeScreen/HomeScreen';
 
-axios.defaults.baseURL = "http://localhost:8800/api";
+axios.defaults.baseURL = 'http://localhost:8800/api';
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
       <Routes>
-       <Route path ="/" element={<HomeScreen/>}/>
+        <Route path='/' element={<HomeScreen />} />
       </Routes>
     </Router>
- 
   );
 }
 

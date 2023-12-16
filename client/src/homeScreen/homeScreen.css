@@ -1,0 +1,14 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.product {
+  border: var(--product-border);
+  margin: 1rem;
+
+}
+
+.product img {
+  width: 100%;
+}
