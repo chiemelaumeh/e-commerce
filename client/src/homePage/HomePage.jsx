@@ -19,14 +19,11 @@ const HomePage = () => {
     }
   };
 
-  const [{ loading, error, products }, dispatch] = useReducer(
-    productReducer,
-    {
-      loading: false,
-      products: [],
-      error: null,
-    }
-  );
+  const [{ loading, error, products }, dispatch] = useReducer(productReducer, {
+    loading: false,
+    products: [],
+    error: null,
+  });
 
   useEffect(() => {
     const fetchProducts = async () => {

@@ -15,7 +15,7 @@ function App() {
     <Router>
       <div className='d-flex flex-column page-container' >
         <header>
-          <Navbar bg='dark' variant='dark'>
+          <Navbar bg='dark' variant='dark' >
             <Container className='nav-container'>
               <Link to='/'>
                 <Navbar.Brand>Chiemela Store</Navbar.Brand>
