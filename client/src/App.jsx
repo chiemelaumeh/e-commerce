@@ -13,9 +13,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <div className='d-flex flex-column page-container' >
+      <div className='d-flex flex-column page-container'>
         <header>
-          <Navbar bg='dark' variant='dark' >
+          <Navbar bg='dark' variant='dark'>
             <Container className='nav-container'>
               <Link to='/'>
                 <Navbar.Brand>Chiemela Store</Navbar.Brand>
@@ -23,7 +23,6 @@ function App() {
             </Container>
           </Navbar>
         </header>
-
         <main>
           <Container>
             <Routes>
@@ -33,10 +32,7 @@ function App() {
           </Container>
         </main>
         <footer>
-          <div className='text-center'>
-            
-            All Rights Reserved
-          </div>
+          <div className='text-center'>All Rights Reserved</div>
         </footer>
       </div>
     </Router>
